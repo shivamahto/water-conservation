@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Conservation Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-weight: bold;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Water Conservation Quiz</h1>
+
+    <div class="question">
+        <p>1. How much of the Earth's surface is covered by water?</p>
+        <label><input type="radio" name="q1" value="a"> 50%</label><br>
+        <label><input type="radio" name="q1" value="b"> 71%</label><br>
+        <label><input type="radio" name="q1" value="c"> 85%</label>
+    </div>
+
+    <div class="question">
+        <p>2. Which of the following is a way to conserve water at home?</p>
+        <label><input type="radio" name="q2" value="a"> Taking longer showers</label><br>
+        <label><input type="radio" name="q2" value="b"> Fixing leaks</label><br>
+        <label><input type="radio" name="q2" value="c"> Running the dishwasher half full</label>
+    </div>
+
+    <div class="question">
+        <p>3. What is the largest user of water in most households?</p>
+        <label><input type="radio" name="q3" value="a"> Drinking</label><br>
+        <label><input type="radio" name="q3" value="b"> Lawn and garden watering</label><br>
+        <label><input type="radio" name="q3" value="c"> Toilets</label>
+    </div>
+
+    <button onclick="checkAnswers()">Submit</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function checkAnswers() {
+            var correct = 0;
+            if (document.querySelector('input[name="q1"]:checked')?.value === "b") correct++;
+            if (document.querySelector('input[name="q2"]:checked')?.value === "b") correct++;
+            if (document.querySelector('input[name="q3"]:checked')?.value === "b") correct++;
+            
+            var resultText = "You got " + correct + " out of 3 correct!";
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+</body>
+</html>
